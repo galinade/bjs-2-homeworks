@@ -136,6 +136,7 @@ class Player {
 	};
 
 	takeDamage(damage) {
+		debugger;
 		if(this.life - damage <= 0){
 			console.log(`${this.name} получает смертельный урон урон.`);
 			this.life = 0;
@@ -229,6 +230,7 @@ class Player {
 	};
 
 	turn( players ) {
+		debugger;
 		if(this.isDead()){
 			return;
 		}
