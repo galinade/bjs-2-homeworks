@@ -21,26 +21,22 @@ function getArrayParams(arr) {
 }
 
 // Задание 2
-function worker(arr) {
+ function worker(arr) {
   let sum;
-    const result = [];
-    for(let i = 0; i < arr.length; i++){
-       sum = 0; 
-      for(let j = 0; j < arr[i].length; j++){
-        sum += arr[i][j]
-      };
-      result[i] = sum
-    };
-    return sum;
+    
+   sum = arr.reduce((acc,item) => acc + item, 0); 
+   return sum;
   }
 
 
-function makeWork(arrOfArr, func) {
+function makeWork(arrOfArr, worker) {
   let max;
-  max = arrOfArr[0];
+  max = worker(arrOfArr [0]);
+   
+  
   for (let i = 0; i < arrOfArr.length; i++){
-    if (arrOfArr[i] > max)
-    max = arrOfArr[i];
+    if (worker(arrOfArr[i]) > max)
+    max = worker(arrOfArr[i]);
   }
   
   return max;
@@ -48,5 +44,31 @@ function makeWork(arrOfArr, func) {
 
 // Задание 3
 function worker2(arr) {
-  // Ваш код
+  
+  let min = arr[0];
+  let max = arr[0];
+  let difference =  min -max;
+   
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] > max)
+    max = arr[i];
+  }
+
+  for (let i = 0; i < arr.length; i++){
+    if(arr[i] < min)
+    min=arr[i]; 
+}
+  
+return Math.abs(difference);
+}
+function makeWork(arrOfArr, worker2) { 
+  let max1;
+  max1 = worker2(arrOfArr [0]);
+   
+  
+  for (let i = 0; i < arrOfArr.length; i++){
+    if (worker2(arrOfArr[i]) > max1)
+    max1 = worker2(arrOfArr[i]);
+  } 
+  return max1;
 }
