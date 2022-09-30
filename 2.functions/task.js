@@ -28,13 +28,15 @@ function makeWork(arrOfArr, func) {
   let max;
   max = func(arrOfArr[0]);
   for (let i = 0; i < arrOfArr.length; i++) {
-    if (func(arrOfArr[i]) > max) {
-    max = func(arrOfArr[i]);
+    const funcResult = func(arrOfArr[i]);
+    if (funcResult > max) {
+    max = funcResult;
     }
   }
   return max;
+  
 }
-makeWork(arrOfArr, worker);
+
 // Задание 3
 function worker2(arr) {
 
@@ -51,5 +53,5 @@ function worker2(arr) {
   }
   return Math.abs(max - min);
 }
-makeWork(arrOfArr, worker2);
+
  

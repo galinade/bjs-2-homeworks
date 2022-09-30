@@ -9,16 +9,30 @@ function Student(name, gender, age) {
  student2 = new Student();
 
 Student.prototype.setSubject = function (subjectName) {
-  //ваш код
+
   this.subject = subjectName;
 }
-Student.prototype.addMark(mark) = function (marks) {
+Student.prototype.addMark = function (marks) {
 
   if(this.marks === undefined){ 
-    this.mark = marks.push(mark[0]);
+    this.mark = marks.push();
     } else {
-     this.mark =marks.push(... mark) 
+     this.mark = marks.push();
     }
 }
 
-// ваш код для остальных методов
+Student.prototype.addMarks = function (...marks) {
+
+  this.marks = marks();
+ 
+}
+Student.prototype.getAverage = function () {
+
+  this.average = this.marks.reduce(((acc,item) => acc + item)/this.marks.length, 0);  ;
+ 
+}
+Student.prototype.exclude = function (reason) {
+  delete student.subject;
+  delete student.marks;
+  this.excluded = reason;
+}
