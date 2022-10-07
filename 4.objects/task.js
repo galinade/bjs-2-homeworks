@@ -11,7 +11,8 @@ function Student(name, gender, age) {
 Student.prototype.setSubject = function (subjectName) {
 
   this.subject = subjectName;
-}  
+}
+
 Student.prototype.addMark = function (mark) {
   
   if(this.marks === undefined) { 
@@ -23,6 +24,7 @@ Student.prototype.addMark = function (mark) {
 
 
 Student.prototype.addMarks = function (...mark) {
+  
   if(this.marks === undefined) { 
     this.marks = [];
   }
