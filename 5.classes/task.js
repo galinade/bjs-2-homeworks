@@ -17,10 +17,11 @@ class PrintEditionItem {
         else {
           this._state = number;
         }
-      }
-      get state(){
-          return this._state;
-      }
+    }
+
+    get state(){
+        return this._state;
+    }
     fix() { 
      return this.state = this.state*1.5
     }
@@ -67,29 +68,40 @@ class Library {
         this.name = name;
         this.books = [];
     }
-    addBook(book) {
-        this.book = new Book;
+
     
-    if (this.book.state > 30) {
+    addBook(book) {
+      this.book = book;
+      if (this.book.state > 30) {
         this.books.push(book)    
     
-    }
+      }
 
     }
     findBookBy(type, value) {
         this.type = type;
         this.value = value;
-    this.books.find (
-            (book) => book.type === value  
-            );
+        if (this.books.find (
+            (book) => book[type] === value  
+            )) {
+                return this.book;
+            }else{
+                return null;
+        }
     
     }
     giveBookByName(bookName) {
-        const index = this.books.findIndex(
+        
+       const index = this.books.findIndex(
             (book) => book.name === bookName   
-            );
+            ); 
+            if(index== -1){
+                return null;
+            }else{
             return this.books.splice(index,1)[0];
+            }
         }
-    } 
+} 
+
     
 
