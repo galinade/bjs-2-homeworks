@@ -9,10 +9,8 @@ function parseCount(string) {
 function validateCount(string) { 
     try{
       return parseCount(string);
-    } catch (error){
-        //return console.error("Ошибка");
-        console.log(error);
-    
+    } catch (error) {
+        return error ;
     }
 } 
 
@@ -21,28 +19,31 @@ class Triangle {
         this.a = a;
         this.b = b;
         this.c = c;
-        this.P = 0;
-        this.p = 0;
-        this.S = 0;
-        
-    
-    if (this.a + this.b < this.c || this.a + this.c < this.b || this.b +this.c <this.a) {
+
+        if (a + b < c || a + c < b || b + c < a) {
         throw new Error ("Треугольник с такими сторонами не существует");    
-    }
+        }
     }  
     getPerimeter() {
-        return this.P = this.a + this.b + this.c;
+    
+        const P = this.a + this.b + this.c;
+        return  P;
     
     }
 
     getArea() {
-        this.p = (this.a + this.b + this.c)/2;
-        this.S = Math.sqrt(this.p*(this.p - this.a)*(this.p - this.b)*(this.p - this.c));
-        return +this.S.toFixed(3);
+       const p = this.getPerimeter()/2;
+       const S = Math.sqrt(p*(p - this.a)*(p - this.b)*(p - this.c));
+        return +S.toFixed(3);
     }
-
-    //function getTriangle(a,b,c) {
-    //   return new Triangle;
 }
 
-
+   function getTriangle(a,b,c) {
+    
+     try{
+        return  new Triangle(a,b,c);
+      } catch (error){
+    return //getTriangle(a, b, c), getArea("Ошибка! Треугольник не существует"),
+    //getPerimeter("Ошибка! Треугольник не существует");
+    }
+}
