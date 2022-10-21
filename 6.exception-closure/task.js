@@ -40,7 +40,7 @@ class Triangle {
       try{
         return  new Triangle(a,b,c);
       } catch (error ){
-        return   getTriangle(a,b,c) = {
+        return   {
         
           getPerimeter() {
             return ('Ошибка! Треугольник не существует');
